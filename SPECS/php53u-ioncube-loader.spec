@@ -67,6 +67,9 @@ EOF
 %{_php5_mod_dir}/ioncube_loader_lin_%{php_basever}_ts.so
 
 %changelog
+* Wed Apr 23 2014 Carl George <carl.george@rackspace.com> - 4.6.1-2.ius
+-  must include both sources so the resulting srpm can build for either arch
+
 * Wed Apr 23 2014 Carl George <carl.george@rackspace.com> - 4.6.1-1.ius
 - use single source link
 - docs are back in tarball

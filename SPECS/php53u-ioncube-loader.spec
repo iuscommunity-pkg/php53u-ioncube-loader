@@ -34,8 +34,8 @@ IonCube Loader provides PHP Modules to read IonCube Encoded Files
              %{buildroot}/etc/php.d
 
 # Install the shared objects
-install -m 755 ioncube_loader_lin_5.3.so %{buildroot}%{_php5_mod_dir}
-install -m 755 ioncube_loader_lin_5.3_ts.so %{buildroot}%{_php5_mod_dir}
+install -m 755 ioncube_loader_lin_%{php_basever}.so %{buildroot}%{_php5_mod_dir}
+install -m 755 ioncube_loader_lin_%{php_basever}_ts.so %{buildroot}%{_php5_mod_dir}
 
 %{__cat} >> %{buildroot}/etc/php.d/ioncube-loader.ini <<EOF
 

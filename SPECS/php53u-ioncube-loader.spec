@@ -1,4 +1,3 @@
-
 %global php php53u
 %global php_basever 5.3
 %global _php5_mod_dir %{_libdir}/php/modules
@@ -6,7 +5,7 @@
 
 Name:       %{php}-ioncube-loader
 Summary:    IonCube Loader provides PHP Modules to read IonCube Encoded Files
-Version:    4.6.0
+Version:    4.6.1
 Release:    1.ius%{?dist}
 Vendor:     Rackspace US, Inc. 
 License:    Free Software
@@ -49,11 +48,8 @@ zend_extension=%{_php5_mod_dir}/ioncube_loader_lin_%{php_basever}.so
 ;
 EOF
 
-
-
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
-
 
 %files
 %defattr(-,root,root)
@@ -62,8 +58,13 @@ EOF
 %{_php5_mod_dir}/ioncube_loader_lin_%{php_basever}.so
 %{_php5_mod_dir}/ioncube_loader_lin_%{php_basever}_ts.so
 
-
 %changelog
+* Wed Apr 23 2014 Carl George <carl.george@rackspace.com> - 4.6.1-1.ius
+- use single source link
+- docs are back in tarball
+- correct basever
+- latest sources from upstream
+
 * Mon Apr 07 2014 Ben Harper <ben.harper@rackspace.com> - 4.6.0-1.ius
 - Latest sources from upstream
 

@@ -6,8 +6,7 @@
 Name:       %{php}-ioncube-loader
 Summary:    IonCube Loader provides PHP Modules to read IonCube Encoded Files
 Version:    4.6.1
-Release:    2.ius%{?dist}
-Vendor:     Rackspace US, Inc. 
+Release:    1.ius%{?dist}
 License:    Free Software
 URL:        http://www.ioncube.com
 Group:      Development/Languages
@@ -62,18 +61,15 @@ EOF
 %files
 %defattr(-,root,root)
 %doc README.txt LICENSE.txt
-%config %attr(644,root,root) /etc/php.d/ioncube-loader.ini
+%config(noreplace) %attr(644,root,root) /etc/php.d/ioncube-loader.ini
 %{_php5_mod_dir}/ioncube_loader_lin_%{php_basever}.so
 %{_php5_mod_dir}/ioncube_loader_lin_%{php_basever}_ts.so
 
 %changelog
-* Wed Apr 23 2014 Carl George <carl.george@rackspace.com> - 4.6.1-2.ius
--  must include both sources so the resulting srpm can build for either arch
-
 * Wed Apr 23 2014 Carl George <carl.george@rackspace.com> - 4.6.1-1.ius
-- use single source link
 - docs are back in tarball
 - correct basever
+- add noreplace option to ioncube-loader.ini
 - latest sources from upstream
 
 * Mon Apr 07 2014 Ben Harper <ben.harper@rackspace.com> - 4.6.0-1.ius

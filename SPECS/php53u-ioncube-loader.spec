@@ -3,13 +3,6 @@
 %global _php5_mod_dir %{_libdir}/php/modules
 %global basever 4.6
 
-%ifarch i386
-%global arch x86
-%endif
-%ifarch x86_64
-%global arch x86-64
-%endif
-
 Name:       %{php}-ioncube-loader
 Summary:    IonCube Loader provides PHP Modules to read IonCube Encoded Files
 Version:    4.6.1
@@ -18,7 +11,7 @@ Vendor:     Rackspace US, Inc.
 License:    Free Software
 URL:        http://www.ioncube.com
 Group:      Development/Languages
-Source0:    http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_%{arch}.tar.gz
+Source0:    http://ioncube.com/loader_downloads/ioncube_loaders_lin_%{_host_cpu}.tar.gz
 BuildRoot:  %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX) 
 Requires:   %{php} >= %{php_basever}
 Conflicts:  php-ioncube-loader < %{basever}
@@ -28,7 +21,7 @@ Provides:   php-ioncube-loader = %{version}-%{release}
 IonCube Loader provides PHP Modules to read IonCube Encoded Files
 
 %prep 
-%setup -q -n ioncube
+%setup -n ioncube
 
 %build
 # Nothing to do here

@@ -11,7 +11,8 @@ Vendor:     Rackspace US, Inc.
 License:    Free Software
 URL:        http://www.ioncube.com
 Group:      Development/Languages
-Source0:    http://ioncube.com/loader_downloads/ioncube_loaders_lin_%{_host_cpu}.tar.gz
+Source0:    http://downloads2.ioncube.com/loader_downloads/ioncube_loaders_lin_x86.tar.gz
+Source1:    http://downloads2.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz 
 BuildRoot:  %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX) 
 Requires:   %{php} >= %{php_basever}
 Conflicts:  php-ioncube-loader < %{basever}
@@ -21,7 +22,17 @@ Provides:   php-ioncube-loader = %{version}-%{release}
 IonCube Loader provides PHP Modules to read IonCube Encoded Files
 
 %prep 
-%setup -n ioncube
+%setup -T -n %{name}-%{version} -c %{name}-%{version}
+if [ "%{_arch}" = "i386" ]; then
+    echo "Arch is i386"
+    tar -zxf %SOURCE0
+    mv ioncube/* .
+elif [ "%{_arch}" = "x86_64" ]; then
+    echo "Arch is x86_64"
+    tar -zxf %SOURCE1
+    mv ioncube/* .
+fi
+
 
 %build
 # Nothing to do here
